@@ -1,0 +1,16 @@
+CREATE DATABASE karmabooks CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE karmabooks;
+
+CREATE TABLE kbooks (
+  id int(11) NOT NULL AUTO_INCREMENT,
+  book varchar(50),
+  author varchar(50),
+  review varchar(1000),
+  PRIMARY KEY (id)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+
+INSERT INTO kbooks (id, book, author, review) VALUES
+(1, 'Into the Water', 'Paula Hawkins', '["Although this book has too many characters in the end it is worth it. It is an enrapturing novel and one of the best thrillers i have ever read -- Ram","How amazing can a book be!! Hats off to Paula Hawkins, a genius writer indeed.Loved the book -- Jane"]'),
+(2, 'Unstoppable: My Life So Far', 'Daniel Riley', '["Excellent Plot...Loved it -- Rabeeh"]'),
+(3, 'Manhattan Beach','Jennifer Egan', '["I loved this novel! As history it was engaging, but the best part was the characters and their relationship. After I read it I kept returning to my memories of the story and the effect of the time period on them. -- Aslam"]'),
+(4, 'Harry Potter and the Order of the Phoenix', 'J.K Rowling','["This book is amazing and my favorite thing is that it has proper English. I have very sensitive emotions so the experience is more realistic for me!"]');
