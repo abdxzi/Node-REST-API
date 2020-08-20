@@ -1,7 +1,7 @@
 module.exports = {
   HOST: "localhost",
-  USER: "zi",
-  PASSWORD: "zimnb",
+  USER: "user",
+  PASSWORD: "passwd",
   DB: "karmaBooks",
   dialect: "mysql",
   pool: {

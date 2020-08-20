@@ -73,7 +73,7 @@ exports.createBook = (req, res) => {
                 };
                 Review.create(review)
                 .then(data => {
-                    res.status(200).send({message : "Book added succesfuly"});
+                    res.status(200).send({id : data.book_id, message: 'book added successfuly'});
                 })
                 .catch(err => {
                     res.status(500).send({
@@ -100,7 +100,7 @@ exports.findAllBooks = (req, res) => {
     const gid = req.query.authorID;
     var condition = gid ? { author_id: { [Op.like]: `%${gid}%` } } : null;
 
-    Book.findAll({ where: condition })
+    Book.findAll({ where: condition, include : [Author,Review] })
         .then(data => {
         res.send(data);
         })

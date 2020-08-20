@@ -3,12 +3,7 @@
  * Coded By : @zix00
  * created for Project Karma
  * 
- * Database : karmaBooks -->    books [book_id, title, publish_date, author_id]
- *                              authors [id, name]
- *                              reviews [id, review, book_id]
- *                              -COMMING SOON-
- *                              users [user_id, fullname, address]
- *                              checkout [user_id, book_id,checkout_date,return_date]
+ *                              
  */
 
 
@@ -38,67 +33,4 @@ var server = app.listen(8081, function () {
     console.log("Example app listening at http://%s:%s", host, port)
 });
 
-
-
-
-
-/*
-// connecting to database
-const sequelize = new Sequelize('karmaBooks','zi','zimnb',{host:'localhost',port:'3306', dialect:'mysql'});
-
-// checking db connection
-sequelize.authenticate()
-    .then(() => {console.log('Database connection established.')})
-    .catch(err => {console.error(err);});
-
-
-
-
-
-
-const User = sequelize.define('User', {
-      // Model attributes are defined here
-      firstName: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      lastName: {
-        type: DataTypes.STRING
-        // allowNull defaults to true
-      },
-    },
-    {
-        tableName: 'users'
-    });
-    
-    // `sequelize.define` also returns the model
-    console.log(User === sequelize.models.User); // true
-
-    sequelize.sync({ force: true })
-    .then(() => {console.log('Synced')})
-    .catch(err => {console.error(err);});
-
-
-
-
-
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//sequelize.close();
+// sequelize.close();
