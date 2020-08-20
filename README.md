@@ -8,10 +8,12 @@ It stores id,name,author,reviews of books in mysql database and manage the datab
 git clone https://github.com/zix00/Node-REST-API.git
 npm install
 ```
-To start nodeAPI run:
+add database credentials in /app/config/db.config.js file
+
+To start API run:
 
 ```bash
-node nodeAPI.js
+node api.js
 ```
 
 ## Documentation
