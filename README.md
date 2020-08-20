@@ -1,6 +1,6 @@
 # Node-REST-API
 A Simple Node+MySQL API For Library book managment.
-It stores id,name,author,reviews of books in mysql database
+It stores id,name,author,reviews of books in mysql database and manage the database using sequelize module.
 
 ## Installation
 
@@ -13,94 +13,44 @@ To start nodeAPI run:
 ```bash
 node nodeAPI.js
 ```
+
 ## Documentation
 
-### Usage
-**1. To list all books**
+### API ENTRY POINTS
 
-```bash
-/api/listBooks
-```
-output:
-```
-{
-    "books": {
-        "1": {
-            "name": "book1",
-            "author": "author1",
-            "review": [
-                "reviw1",
-                "review2"
-            ]
-        },
-        "2": {
-            "name": "book2",
-            "author": "author2",
-            ...................
-            ...................
-     }
-}
-```
+**1. /api/book**
 
-**2. Get details about a book**
-```bash
-/api/book/[bookId]
-```
-output:
-```json
-{
-    "1": {
-        "name": "book1",
-        "author": "book2",
-        "review": [
-            "review1",
-            "review2"
-        ]
-    }
-}
-```
+| Method | API POINT         | Usage                       | parameters                           |
+| ------ | ----------------- | --------------------------- | ------------------------------------ |
+| GET    | /book             | Get all Books               |                                      |
+| GET    | /book?authorID=x  | Get All Books of authorID x |                                      |
+| GET    | /book?:id         | Get one Book                |                                      |
+| POST   | /book             | Create Book                 | title*, author*, description, review |
+| PUT    | /book/:id         | Update Book                 | title*, description*                 |
+| DELETE | /book/:id         | Delete Book                 |                                      |
 
-**3. Add a book to the database**
+**2. /api/author**
 
-_**PUT** request with following parameters_ :
-  * **name**   - unique name for the book
-  * **author** - author of the book
-  * **review** - first review of the book (optional)
+| Method | API POINT         | Usage                       | parameters                           |
+| ------ | ----------------- | --------------------------- | ------------------------------------ |
+| GET    | /author           | Get all Authors             |                                      |
+| GET    | /author?:id       | Get one Author              |                                      |
+| POST   | /author           | Create Author               | author*                              |
+| PUT    | /author/:id       | Update Author               | author*                              |
+| DELETE | /author/:id       | Delete Author               |                                      |
 
-```bash
-/api/addBook
-```
-Fails if book already exists
+**3. /api/review**
 
+| Method | API POINT          | Usage                         | parameters                           |
+| ------ | ------------------ | ----------------------------- | ------------------------------------ |
+| GET    | /review            | Get all Reviews               |                                      |
+| GET    | /review?bookID=x   | Get All Reviews of authorID x |                                      |
+| GET    | /review?:id        | Get one Review                |                                      |
+| POST   | /review            | Create Review                 | bookID*, review*                     |
+| PUT    | /review/:id        | Update Review                 | review*                              |
+| DELETE | /review/:id        | Delete Review                 |                                      |
 
-**4. Delete a book from database**
-
-_**DELETE** request with **id** parameter_
-
-```bash
-/api/deleteBook/[bookId]
-```
-
-**5. Add a review for a book**
-
-_**POST** request with following parameters_ :
-  * **id**     - id of the book
-  * **review** - review of the book
-
-```bash
-/api/addReview
-```
-
-**6. Edit details about a book**
-
-_**POST** request with following parameters_ :
-  * **id**       - id of the book
-  * **property** - property of book to be changed. takes 'name','author','review' as values.
-  * **newValue** - new value for the property
-  * **reviewId** - index of specific review of a book (optional)
-```bash
-/api/editBook
-```
+\* mandatory parameters
 
 ### Error handling
 
@@ -109,7 +59,7 @@ On error api will return http error codes and error. Example:
 ```json
 {
     "code": 404,
-    "err": "not found"
+    "msg": "not found"
 }
 ```
 
