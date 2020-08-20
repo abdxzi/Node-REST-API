@@ -54,12 +54,11 @@ node nodeAPI.js
 
 ### Error handling
 
-On error api will return http error codes and error. Example:
+On error api will return http error codes and error message. Example:
 
 ```json
 {
-    "code": 404,
-    "msg": "not found"
+    "message": "not found"
 }
 ```
 
